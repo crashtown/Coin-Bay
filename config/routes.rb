@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
+  resources :items
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "item#market"
-  get 'auth/user_control', to: "auth#user_control", as: :auth
-  get 'auth/sell', to: "auth#sell_view", as: :sell_view
-  post 'auth/sell', to: "auth#sell_create", as: "sell_create"
-  delete 'item/market/:id', to: "item#sell_delete", as: :sell_delete
-  put 'item/market/:id', to: "item#sell_edit", as: :sell_edit
-  get 'item/market', to: "item#market", as: :item
-
-resources :items
+  root to: "items#index"
 end
