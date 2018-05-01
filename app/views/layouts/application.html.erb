@@ -5,8 +5,6 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://athenawebassetsprod.azureedge.net/27a7a6c5c2fb2edd495a16020ed634f6/css/font-latin.css">
-    <link rel="stylesheet" href="https://athenawebassetsprod.azureedge.net/27a7a6c5c2fb2edd495a16020ed634f6/css/commons.css">
     <% if user_signed_in? %>
       <%= render "shared/nav" %>
     <%else%>
