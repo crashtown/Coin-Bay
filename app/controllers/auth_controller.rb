@@ -7,7 +7,7 @@ before_action :authenticate_user!
   end
 
   def sell_view
-
+    @tab = params[:tab]
   end
 
   def sell_create

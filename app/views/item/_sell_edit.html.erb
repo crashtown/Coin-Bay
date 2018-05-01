@@ -1,0 +1,31 @@
+
+<%= form_with url: sell_create_path, method: :post do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, ["Goods", 'Services']%>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shipping %>
+    <%= form.select :shipping, ['AusPost Express', 'AusPost Registered']%>
+  </div>
+
+    <div class="actions">
+    <%= form.submit("List Item") %>
+  </div>
+<% end %>

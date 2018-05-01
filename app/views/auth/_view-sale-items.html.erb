@@ -21,8 +21,8 @@
         <td><%= item.shipping %></td>
         <td><%= item.quantity %></td>
         <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', sell_view_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', sell_edit_path(item), method: :put %></td>
+        <td><%= link_to 'Destroy', sell_delete_path(item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

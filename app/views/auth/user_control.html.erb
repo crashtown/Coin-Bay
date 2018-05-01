@@ -14,7 +14,7 @@
 </ul>
 <div class="tab-content" id="control-tabContent">
   <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab"><%= render "dashboard" %></div>
-  <div class="tab-pane fade" id="sell-item" role="tabpanel" aria-labelledby="sell-item-tab"><%= render "sell_view" %></div>
+  <div class="tab-pane <%= @tab == "specific_tab" ? "active" : "" %>" "tab-pane fade" id="sell-item" role="tabpanel" aria-labelledby="sell-item-tab"><%= render "sell_view" %></div>
   <div class="tab-pane fade" id="view-sale-items" role="tabpanel" aria-labelledby="view-sale-items-tab"><%= render "view-sale-items" %></div>
   <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab"><%= render "messages" %></div>
 </div>
