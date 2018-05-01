@@ -10,22 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501070321) do
+ActiveRecord::Schema.define(version: 20180501080743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "category"
+    t.bigint "category_id"
     t.float "price"
-    t.string "shipping"
+    t.bigint "shipping_id"
     t.integer "quantity"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["shipping_id"], name: "index_items_on_shipping_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,5 +59,7 @@ ActiveRecord::Schema.define(version: 20180501070321) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "shippings"
   add_foreign_key "items", "users"
 end
