@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    filter_params.each do | key, value |
+    @items = @items.public_send(key, value) if value.present?
+    end
   end
 
   # GET /items/1
@@ -69,7 +72,10 @@ class ItemsController < ApplicationController
     def set_item
       @item = Item.find(params[:id])
     end
-
+    
+    def filter_params
+        params.slice(:title, :price)
+      end
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.require(:item).permit(:name, :description, :category_id, :price, :shipping_id, :quantity, :user_id)
