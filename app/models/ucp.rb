@@ -1,0 +1,2 @@
+class Ucp < ApplicationRecord
+end
