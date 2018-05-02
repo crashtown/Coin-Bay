@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  $btc = Btcprice.find(1).price
+
   # GET /items
   # GET /items.json
   def index
@@ -9,6 +11,13 @@ class ItemsController < ApplicationController
     filter_params.each do | key, value |
     @items = @items.public_send(key, value) if value.present?
     end
+  end
+
+  def current_btc_price
+  @price =  Binance::Api.ticker!(symbol: "BTCUSDT", type: "price")
+  @btc = Btcprice.find(1)
+  @btc.price = @price[:price]
+  @btc.save
   end
 
   # GET /items/1

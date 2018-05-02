@@ -1,0 +1,2 @@
+class Btcprice < ApplicationRecord
+end
