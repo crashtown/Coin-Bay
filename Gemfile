@@ -4,7 +4,13 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+#Job runner
+gem 'sidekiq-cron'
+#Job tool
+gem 'sidekiq'
+#Binance API integration
+gem 'binance-ruby'
+#Devise for user auth
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
