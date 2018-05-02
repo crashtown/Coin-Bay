@@ -28,13 +28,14 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    @ucps = Ucps.all
     @item = Item.new(item_params)
     @item.user = current_user
 
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to "/ucps/view_listed", notice: 'Item was successfully listed.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -48,7 +49,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to "/ucps/view_listed", notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -62,7 +63,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to "/ucps/view_listed", notice: 'Item was successfully de-listed.' }
       format.json { head :no_content }
     end
   end
@@ -72,7 +73,7 @@ class ItemsController < ApplicationController
     def set_item
       @item = Item.find(params[:id])
     end
-    
+
     def filter_params
         params.slice(:title, :price)
       end
