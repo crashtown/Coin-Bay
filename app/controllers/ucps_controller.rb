@@ -16,11 +16,7 @@ class UcpsController < ApplicationController
     @items = Item.all
   end
 
-  def nav
-    Binance::Api.ping! # => {}
-  end
-
-  private
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_ucp
       @ucp = Ucp.find(params[:id])
