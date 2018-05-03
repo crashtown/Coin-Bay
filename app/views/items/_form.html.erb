@@ -11,7 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <% if @item.image.url != nil %>
+    <%= image_tag @item.image.url(:thumb) %>
+  <% else %>
+  <% end %>
+
+    <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :item_name %>
   </div>
@@ -39,6 +44,11 @@
   <div class="field">
     <%= form.label :quantity %>
     <%= form.number_field :quantity, id: :item_quantity %>
+  </div>
+
+  <div class="form-inputs">
+      <%= form.label :image %>
+      <%= form.file_field :image, as: :file %>
   </div>
 
   <div class="actions">

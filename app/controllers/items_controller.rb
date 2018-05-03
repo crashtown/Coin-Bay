@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-
+  $btc = Btcprice.find(1).price
 
   # GET /items
   # GET /items.json
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   @btc = Btcprice.find(1)
   @btc.price = @price[:price]
   @btc.save
-  $btc = Btcprice.find(1).price
+  @btc = Btcprice.find(1).price
   end
 
   # GET /items/1
@@ -38,7 +38,6 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @ucps = Ucps.all
     @item = Item.new(item_params)
     @item.user = current_user
 
@@ -89,6 +88,6 @@ class ItemsController < ApplicationController
       end
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :category_id, :price, :shipping_id, :quantity, :user_id)
+      params.require(:item).permit(:name, :description, :category_id, :price, :shipping_id, :quantity, :user_id, :image)
     end
 end
