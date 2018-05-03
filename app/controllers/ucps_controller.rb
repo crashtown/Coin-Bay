@@ -1,7 +1,8 @@
 class UcpsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_ucp, only: [:show, :edit, :update, :destroy]
+  before_action :set_ucp, only: [:show, :edit, :update, :destroy, :create]
 
+$btc = Btcprice.find(1).price
   # GET /ucps
   # GET /ucps.json
   def dashboard
