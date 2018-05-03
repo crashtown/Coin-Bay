@@ -8,10 +8,6 @@ end
 gem 'carrierwave'
 #cloud picture storage
 gem 'cloudinary'
-#Job runner
-gem 'sidekiq-cron'
-#Job tool
-gem 'sidekiq'
 #Binance API integration
 gem 'binance-ruby'
 #Devise for user auth

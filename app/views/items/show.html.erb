@@ -1,5 +1,8 @@
 <p>
+<% if @item.image.url != nil %>
   <%= image_tag @item.image.url(:thumb) %>
+<% else %>
+<% end %>
 </p>
 
 <p>
@@ -19,7 +22,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @item.price %>
+  <%= "$#{@item.price}USD (BTC:#{sprintf("%.8f", 1 / $btc.to_f * @item.price)})" %>
 </p>
 
 <p>

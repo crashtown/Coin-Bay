@@ -1,7 +1,5 @@
 <div class="panel panel-default">
 <div class="panel-body">
-  <h1>CoinBay</h1>
-  <br/>
   <form class="form-inline">
     <div for="search" class="form-group">
       <input  type="text" placeholder= "Yarr! What ye be lookin' fer?" name="search"  class="form-control">
@@ -12,36 +10,29 @@
   </form>
 </div>
 </div>
+<hr/>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Shipping</th>
-      <th>Quantity</th>
-      <th>Seller</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @items.each do |item| %>
+    <div>
       <tr>
-        <td><%= link_to item.name, item %></td>
-        <td><%= item.description %></td>
-        <td><%= item.category.name %></td>
-        <td><%= item.price %></td>
-        <td><%= item.shipping.name %></td>
-        <td><%= item.quantity %></td>
-        <td><a href="mailto:<%= item.user.email %>"><%= item.user.email %></a></td>
-
-
-
+        <td>
+          <% if item.image.url != nil %>
+            <%= image_tag item.image.url(:thumb) %>
+          <% else %>
+          <% end %>
+          <%= link_to item.name, item %>
+          <%="Price: $#{item.price}USD (BTC:#{sprintf("%.8f", 1 / $btc.to_f * item.price)})" %>
+          <%= "Shipping: #{item.shipping.name}" %>
+          <%= "Quantity Left: #{item.quantity}" %>
+          <a href="mailto:<%= item.user.email %>"><%= "Seller: #{item.user.email}" %></a>
+          <hr/>
+        </td>
       </tr>
-    <% end %>
+    </div>
+
+  <% end %>
   </tbody>
 </table>
 

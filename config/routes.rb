@@ -8,4 +8,5 @@ Rails.application.routes.draw do
  get 'ucps/messages', to: "ucps#messages", as: :ucps_messages
  get 'ucps/view_listed', to: "ucps#view_listed", as: :ucps_view_listed
  post 'ucps/dashboard', to: "items#current_btc_price", as: :current_btc_price
+ 
 end

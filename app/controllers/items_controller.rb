@@ -2,14 +2,12 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  $btc = Btcprice.find(1).price
-
   # GET /items
   # GET /items.json
     def index
       @items = Item.all
       filter_params.each do | key, value |
-        @items = @items.public_send(key, value) if value.present?
+      @items = @items.public_send(key, value) if value.present?
     end
   end
 
@@ -18,7 +16,7 @@ class ItemsController < ApplicationController
   @btc = Btcprice.find(1)
   @btc.price = @price[:price]
   @btc.save
-  @btc = Btcprice.find(1).price
+  $btc = Btcprice.find(1).price
   end
 
   # GET /items/1
