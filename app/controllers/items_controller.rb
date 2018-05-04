@@ -11,6 +11,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def buy_success
+
+  end
+
   def current_btc_price
   @price =  Binance::Api.ticker!(symbol: "BTCUSDT", type: "price")
   @btc = Btcprice.find(1)
