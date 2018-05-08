@@ -36,7 +36,7 @@ development:
   <<: *default
   database: coinbay_development
   host: localhost
-  username: ultra
+  username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
@@ -92,5 +92,5 @@ development:
 production:
   <<: *default
   database: coinbay_production
-  username: ultra
+  username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>
