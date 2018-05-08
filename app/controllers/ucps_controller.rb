@@ -6,7 +6,8 @@ $btc = Btcprice.find(1).price
   # GET /ucps
   # GET /ucps.json
   def dashboard
-
+        @apikey = current_user.api
+        
   end
 
   def messages

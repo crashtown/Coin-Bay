@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    @apikey = current_user.api
     @item = Item.new
   end
 

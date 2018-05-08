@@ -1,4 +1,8 @@
 <br/>
 <%= render "shared/user_cp_nav" %>
 <br/>
+<% if @apikey == nil %>
+  <%= "Please generate a Sellers API Key on your Dashboard and save it before attempting to sell any items." %>
+<% else %>
 <%= render 'form', item: @item %>
+<% end %>

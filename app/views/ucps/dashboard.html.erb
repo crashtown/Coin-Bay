@@ -3,13 +3,23 @@
 <br/>
 <p>Welcome to your CoinBay dashboard, to start selling please follow the steps below.
 
-CoinBay utilises BitPay to handle all Bitcoin payments, this service allows easy payments and invoice/tracking for items sold.</p>
-
 <ol>
   <li>
-    Please visit <a href="https://www.bitpay.com">Bitpay</a> and "Sign Up" for a business account and confirm the sign-up email.
+    Please visit this link to generate an <a href="https://www.klukt.com/#getapikey" target="_blank">API Key</a>, CoinBay uses Klukt to process Bitcoin payments.
   </li>
   <li>
-    Once logged into the Bitpay website, please go to add a Bank Account and proceed to add a Bitcoin Address to receive Bitcoin payments to your wallet.
+    Please enter your Extended Public Key of your BTC wallet, this allows the system to direct payments to your wallet when your items are sold.
+  </li>
+  <li>
+    Ignore the Company IPN URL, enter your email address for the Company Email and Company Name, click generate APIKEY and save it in the field below.
   </li>
 </ol>
+<p> Please note, this key allows incoming payments to your wallet as a feature, payments cannot be made from it so it is not sensitive in nature.
+<br/>
+<br/>
+
+<% if @apikey == nil %>
+  <%= "Please set your Seller's API Key:" %>
+  <% else %>
+    <%= "Your currently set Seller's API Key: #{@apikey}" %>
+<% end %>
