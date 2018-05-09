@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+require 'cgi'
+#url parser
 gem 'ruby-ntlm'
 #exchange ntlm mailer
 gem 'jquery-rails'

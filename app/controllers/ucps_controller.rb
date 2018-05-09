@@ -7,11 +7,16 @@ $btc = Btcprice.find(1).price
   # GET /ucps.json
   def dashboard
         @apikey = current_user.api
-        
+
   end
 
   def messages
 
+  end
+
+  def buy_success
+    @success_url = request.original_url
+    @success_details = Rack::Utils.parse_query(URI(@success_url).query)
   end
 
   def view_listed

@@ -11,16 +11,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def buy_success
-
-  end
-
   def current_btc_price
-  @price =  Binance::Api.ticker!(symbol: "BTCUSDT", type: "price")
-  @btc = Btcprice.find(1)
-  @btc.price = @price[:price]
-  @btc.save
-  $btc = Btcprice.find(1).price
+    @price =  Binance::Api.ticker!(symbol: "BTCUSDT", type: "price")
+    @btc = Btcprice.find(1)
+    @btc.price = @price[:price]
+    @btc.save
+    $btc = Btcprice.find(1).price
   end
 
   # GET /items/1
