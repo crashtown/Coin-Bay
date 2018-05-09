@@ -41,5 +41,5 @@
   <%= @item.user.email %>
 </p>
 
-<%= link_to 'Buy', "https://klukt.com/payment.html?company=#{@item.user.email}&apikey=#{@item.api}&item=#{@item.name}&id=1&curr=USD&amount=#{@item.price}&url=http://localhost:3000/ucps/buy_success&email=ask&name=ask&Deliver_Address=ask" %>
+<%= link_to 'Buy', "https://klukt.com/payment.html?company=#{@item.user.email}&apikey=#{Api.find(@item.user.api_id).apikey}&item=#{@item.name}&id=1&curr=USD&amount=#{@item.price}&url=http://localhost:3000/ucps/buy_success&email=ask&name=ask&Deliver_Address=ask" %>
 <%= link_to 'Back', items_path %>

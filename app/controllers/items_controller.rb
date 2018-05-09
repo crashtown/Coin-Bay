@@ -26,8 +26,11 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @apikey = current_user.api
-    @item = Item.new
+    if current_user.api_id == nil
+    else
+      @apikey = Api.find(current_user.api_id).apikey
+      @item = Item.new
+    end
   end
 
   # GET /items/1/edit
@@ -39,6 +42,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
+    @item.api_id = current_user.api_id
 
 
     respond_to do |format|
@@ -87,6 +91,6 @@ class ItemsController < ApplicationController
       end
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :category_id, :price, :shipping_id, :quantity, :user_id, :image)
+      params.require(:item).permit(:name, :description, :category_id, :price, :shipping_id, :quantity, :user_id, :image, :api_id)
     end
 end

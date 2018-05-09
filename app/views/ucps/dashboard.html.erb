@@ -1,6 +1,7 @@
 <br/>
 <%= render "shared/user_cp_nav" %>
 <br/>
+<div>
 <p>Welcome to your CoinBay dashboard, to start selling please follow the steps below.
 
 <ol>
@@ -19,7 +20,8 @@
 <br/>
 
 <% if @apikey == nil %>
-  <%= "Please set your Seller's API Key:" %>
+  <strong><%= "Please set your Seller's API Key:" %></strong>
   <% else %>
-    <%= "Your currently set Seller's API Key: #{@apikey}" %>
+    <strong><%= "Your currently set Seller's API Key: #{@apikey}" %></strong>
 <% end %>
+</div>
