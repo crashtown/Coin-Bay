@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508035837) do
+ActiveRecord::Schema.define(version: 20180509033303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apis", force: :cascade do |t|
+    t.string "apikey"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "btcprices", force: :cascade do |t|
     t.string "price"
@@ -38,6 +44,8 @@ ActiveRecord::Schema.define(version: 20180508035837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.bigint "api_id"
+    t.index ["api_id"], name: "index_items_on_api_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["shipping_id"], name: "index_items_on_shipping_id"
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -67,12 +75,15 @@ ActiveRecord::Schema.define(version: 20180508035837) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "api"
+    t.bigint "api_id"
+    t.index ["api_id"], name: "index_users_on_api_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "apis"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "shippings"
   add_foreign_key "items", "users"
+  add_foreign_key "users", "apis"
 end
