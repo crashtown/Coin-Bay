@@ -1,3 +1,8 @@
+<div class="container">
+<div style="
+background-color: rgba(255, 255, 255, 0.5);
+padding: 10px;
+border-radius: 25px;">
 <p>
 <% if @item.image.url != nil %>
   <%= image_tag @item.image.url(:thumb) %>
@@ -39,6 +44,8 @@
   <strong>Seller:</strong>
   <%= @item.user.email %>
 </p>
-
-<%= link_to 'Buy', "https://klukt.com/payment.html?company=#{@item.user.email}&apikey=#{Api.find(@item.user.api_id).apikey}&item=#{@item.name}&id=1&curr=USD&amount=#{@item.price}&url=http://localhost:3000/ucps/buy_success&email=ask&name=ask&Deliver_Address=ask" %>
-<%= link_to 'Back', items_path %>
+</div>
+<br/>
+<%= link_to 'Buy', "https://klukt.com/payment.html?company=#{@item.user.email}&apikey=#{Api.find(@item.user.api_id).apikey}&item=#{@item.name}&id=1&curr=USD&amount=#{@item.price}&url=http://localhost:3000/ucps/buy_success&email=ask&name=ask&Deliver_Address=ask", class: "btn btn-primary" %>
+<%= link_to 'Back', items_path, class: "btn btn-primary"  %>
+</div>

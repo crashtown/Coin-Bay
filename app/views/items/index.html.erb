@@ -7,34 +7,37 @@
       <%= link_to "Clear Filter", "items#index", class: "btn btn-primary"%>
     </div>
  </form>
+ <hr/>
 
 </div>
 </div>
  <br/>
 
 <strong>
-<table>
-  <tbody>
+<div class="container">
+
     <% @items.each do |item| %>
     <div>
-      <tr>
-        <td>
+          <div style="
+          background-color: rgba(255, 255, 255, 0.5);
+          padding: 10px;
+          border-radius: 25px;">
           <% if item.image.url != nil %>
-            <%= image_tag item.image.url(:thumb) %>
+          <%= image_tag item.image.url(:thumb) %>
           <% else %>
           <% end %>
-          <%= link_to item.name, item %>
-          <%="Price: $#{item.price}USD (BTC:#{sprintf("%.8f", 1 / $btc.to_f * item.price)})" %>
-          <%= "Shipping: #{item.shipping.name}" %>
-          <%= "Quantity Left: #{item.quantity}" %>
-          <a href="mailto:<%= item.user.email %>"><%= "Seller: #{item.user.email}" %></a>
+        <div style="display:inline-block; vertical-align: middle;">
+          <p><%= link_to item.name, item %></p>
+          <p><%="Price: $#{item.price}USD (BTC:#{sprintf("%.8f", 1 / $btc.to_f * item.price)})" %></p>
+          <p><%= "Shipping: #{item.shipping.name}" %></p>
+          <p><%= "Quantity Left: #{item.quantity}" %></p>
+          <p><a href="mailto:<%= item.user.email %>"><%= "Seller: #{item.user.email}" %></a></p>
+        </div>
+        </div>
           <hr/>
-        </td>
-      </tr>
     </div>
 
   <% end %>
-  </tbody>
-</table>
+</div>
 </strong>
 <br>

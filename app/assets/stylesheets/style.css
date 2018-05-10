@@ -2,6 +2,8 @@ body {
    background-image: url("http://res.cloudinary.com/dwsqw6mhk/image/upload/v1525951840/bg.png");
    background-size: cover;
    background-color: #000000;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
 }
 
 .logon {

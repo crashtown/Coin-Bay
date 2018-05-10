@@ -3,7 +3,12 @@
 <br/>
 <strong>
 <% if current_user.api_id == nil %>
+<div style="
+background-color: rgba(255, 255, 255, 0.5);
+padding: 10px;
+border-radius: 25px;">
   <%= "Please generate a Sellers API Key on your Dashboard and save it before attempting to sell any items." %>
+</div>
 <% else %>
 <%= render 'form', item: @item %>
 <% end %>

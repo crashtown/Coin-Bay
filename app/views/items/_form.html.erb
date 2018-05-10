@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_with(model: item, local: true) do |form| %>
   <% if item.errors.any? %>
     <div id="error_explanation">
@@ -10,11 +11,16 @@
       </ul>
     </div>
   <% end %>
-
+  <div style="
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 25px;">
   <% if @item.image.url != nil %>
     <%= image_tag @item.image.url(:thumb) %>
   <% else %>
   <% end %>
+  <br/>
+  <br/>
 
     <div class="field">
     <%= form.label :name %>
@@ -31,10 +37,12 @@
     <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name), id: :item_category %>
   </div>
 
+
   <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price, id: :item_price %>
   </div>
+
 
   <div class="field">
     <%= form.label :shipping %>
@@ -45,13 +53,16 @@
     <%= form.label :quantity %>
     <%= form.number_field :quantity, id: :item_quantity %>
   </div>
+  <br/>
 
   <div class="form-inputs">
       <%= form.label :image %>
       <%= form.file_field :image, as: :file %>
   </div>
-
+</div>
+  <br/>
   <div class="actions">
     <%= form.submit "List Item for Sale", class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
