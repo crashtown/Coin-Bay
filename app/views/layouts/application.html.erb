@@ -12,16 +12,15 @@
     <%else%>
     <%end%>
     <%= yield %>
-
   </body>
   <footer>
-  </div class:"align-text-bottom">
-      <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-  </div>
-  </footer>
+ <div style="position:fixed; bottom: 0px;">
+     <% if notice %>
+   <p class="alert alert-success"><%= notice %></p>
+ <% end %>
+ <% if alert %>
+   <p class="alert alert-danger"><%= alert %></p>
+ <% end %>
+ </div>
+ </footer>
 </html>
