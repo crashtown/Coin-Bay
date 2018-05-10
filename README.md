@@ -45,26 +45,29 @@ Configuration - you will not have a `/config/local_env.yml` file as this has bee
 
 5. Create a 'local_env.yml' file in the /config/ directory of the app, then add these below.
 
-`DB_USER: 'XXX' #Username for database
+```ruby
+DB_USER: 'XXX' #Username for database
 DB_PASSWORD: 'XXX' #Password for database
 BINANCE_API_KEY: 'XXX' #Register an account on trading exchange binance.com and generate an API Key
 BINANCE_SECRET_KEY: 'XXX' #Register an account on trading exchange binance.com and generate an API Secret
 CLOUDINARY_API_KEY: 'XXX' #Register an account with cloudinary.com and generate an API Key
 CLOUDINARY_SECRET_KEY: 'XXX' #Register an account with cloudinary.com and generate an API Secret
 EXCHANGE_PASS: 'XXX' #SMTP password for your SMTP service`
+```
 
 6. Add this line of code to config/application.rb allow Rails to load the local_env.yml environment variables on startup.
 
-`class Application < Rails::Application
-  # Initialize configuration defaults for originally generated Rails version.
+```ruby
+class Application < Rails::Application
+  #Initialize configuration defaults for originally generated Rails version.
   config.load_defaults 5.1
 
 config.before_configuration do
   env_file = File.join(Rails.root, 'config', 'local_env.yml')
   YAML.load(File.open(env_file)).each do |key, value|
     ENV[key.to_s] = value
-  end if File.exists?(env_file)`
-
+  end if File.exists?(env_file)
+```
   7. A BTC testnet wallet will be required for testing, you can create one at https://bitpay.com. Once created, you will need to send yourself some testnet coins to send payments unless you are planning to go live with btC right away. You can get test coins from this faucet here, https://testnet.manu.backend.hamburg/faucet.
 
 --------------
