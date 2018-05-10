@@ -36,26 +36,26 @@ These issues will be addressed, the price of the goods or service will be hedged
 
 -----------------------
 ## 2 Installation
-Configuration - you will not have a /config/local_env.yml file as this has been ignored through Git. In order to run the App you will need to create a new /config/local_env.yml file and pre-fill it with the environmental variables listed below.
+Configuration - you will not have a `/config/local_env.yml` file as this has been ignored through Git. In order to run the App you will need to create a new `/config/local_env.yml` file and pre-fill it with the environmental variables listed below.
 
 1. Clone the repo then change into the directory.
 2. Run `bundle install` in terminal.
 3. Run `rails db:migrate` in terminal.
-4. Run 'rails db:seed' in the terminal.
+4. Run `rails db:seed` in the terminal.
 
 5. Create a 'local_env.yml' file in the /config/ directory of the app, then add these below.
 
-DB_USER: 'XXX' #Username for database
+`DB_USER: 'XXX' #Username for database
 DB_PASSWORD: 'XXX' #Password for database
 BINANCE_API_KEY: 'XXX' #Register an account on trading exchange binance.com and generate an API Key
 BINANCE_SECRET_KEY: 'XXX' #Register an account on trading exchange binance.com and generate an API Secret
 CLOUDINARY_API_KEY: 'XXX' #Register an account with cloudinary.com and generate an API Key
 CLOUDINARY_SECRET_KEY: 'XXX' #Register an account with cloudinary.com and generate an API Secret
-EXCHANGE_PASS: 'XXX' #SMTP password for your SMTP service
+EXCHANGE_PASS: 'XXX' #SMTP password for your SMTP service`
 
 6. Add this line of code to config/application.rb allow Rails to load the local_env.yml environment variables on startup.
 
-class Application < Rails::Application
+`class Application < Rails::Application
   # Initialize configuration defaults for originally generated Rails version.
   config.load_defaults 5.1
 
@@ -63,7 +63,7 @@ config.before_configuration do
   env_file = File.join(Rails.root, 'config', 'local_env.yml')
   YAML.load(File.open(env_file)).each do |key, value|
     ENV[key.to_s] = value
-  end if File.exists?(env_file)
+  end if File.exists?(env_file)`
 
   7. A BTC testnet wallet will be required for testing, you can create one at https://bitpay.com. Once created, you will need to send yourself some testnet coins to send payments unless you are planning to go live with btC right away. You can get test coins from this faucet here, https://testnet.manu.backend.hamburg/faucet.
 
@@ -140,7 +140,7 @@ User Control Panel View Listed
 ------------------
 
 ## 9. Project Plan
-![This is the project Plan](app/assets/images/project.png)
+![This is the project Plan](app/assets/images/project.jpg)
 
 -------------------
 ## 10. Future Updates
