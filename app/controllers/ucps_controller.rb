@@ -12,6 +12,14 @@ $btc = Btcprice.find(1).price
     end
   end
 
+def save_api
+  @api = Api.new(api_params)
+  @api.save
+  current_user.api_id = @api.id
+  current_user.save
+  redirect_to '/ucps/dashboard'
+end
+
   def messages
 
   end
@@ -36,4 +44,9 @@ $btc = Btcprice.find(1).price
     def ucp_params
       params.fetch(:ucp, {})
     end
+
+    def api_params
+      params.permit(:apikey)
+    end
+
 end

@@ -21,6 +21,10 @@
 
 <% if @apikey == nil %>
   <strong><%= "Please set your Seller's API Key:" %></strong>
+  <%= form_with url: '/ucps/save_api' do |f| %>
+              <p><%= f.text_field :apikey %></p>
+                    <p><%= f.submit %></p>
+  <% end %>
   <% else %>
     <strong><%= "Your currently set Seller's API Key: #{@apikey}" %></strong>
 <% end %>

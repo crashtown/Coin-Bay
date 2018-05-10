@@ -9,5 +9,6 @@ Rails.application.routes.draw do
  get 'ucps/view_listed', to: "ucps#view_listed", as: :ucps_view_listed
  post 'ucps/dashboard', to: "items#current_btc_price", as: :current_btc_price
  get  'ucps/buy_success', to: "ucps#buy_success", as: :buy_success
+ post 'ucps/save_api', to: "ucps#save_api", as: :save_api
 
 end
