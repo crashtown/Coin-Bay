@@ -1,5 +1,6 @@
 <%= render "shared/user_cp_nav" %>
 <br/>
+<strong>
 <div>
 <p>Welcome to your CoinBay dashboard, to start selling please follow the steps below.
 
@@ -19,12 +20,13 @@
 <br/>
 
 <% if @apikey == nil %>
-  <strong><%= "Please set your Seller's API Key:" %></strong>
+  <h4><%= "Please set your Seller's API Key:" %></h4>
   <%= form_with url: '/ucps/save_api' do |f| %>
               <p><%= f.text_field :apikey %></p>
-                    <p><%= f.submit %></p>
+                    <p><%= f.submit "Save API Key", class: "btn btn-primary" %></p>
   <% end %>
   <% else %>
-    <strong><%= "Your currently set Seller's API Key: #{@apikey}" %></strong>
+    <%= "Your currently set Seller's API Key: #{@apikey}" %>
 <% end %>
 </div>
+</strong>

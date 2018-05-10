@@ -1,17 +1,18 @@
-<div class="panel panel-default" id="search">
-<div class="panel-body">
+<div class="container">
+<div class="pull-left" style="background:transparent">
   <form class="form-inline">
     <div for="search" class="form-group" >
-      <input  type="text" placeholder= "Yarr! What ye be lookin' fer?" name="search"  class="form-control">
+      <input  type="text" placeholder= "What ye be lookin' fer?" name="search"  class="form-control">
       <input type="submit" value="Search" class="btn btn-primary">
       <%= link_to "Clear Filter", "items#index", class: "btn btn-primary"%>
     </div>
+ </form>
 
-  </form>
 </div>
 </div>
-<hr/>
+ <br/>
 
+<strong>
 <table>
   <tbody>
     <% @items.each do |item| %>
@@ -35,5 +36,5 @@
   <% end %>
   </tbody>
 </table>
-
+</strong>
 <br>

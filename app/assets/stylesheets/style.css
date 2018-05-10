@@ -1,5 +1,13 @@
 body {
-   background-image: url("http://res.cloudinary.com/dwsqw6mhk/image/upload/v1525747930/bg.png");
+   background-image: url("http://res.cloudinary.com/dwsqw6mhk/image/upload/v1525951840/bg.png");
    background-size: cover;
    background-color: #000000;
+}
+
+.logon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
