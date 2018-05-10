@@ -65,6 +65,8 @@ config.before_configuration do
     ENV[key.to_s] = value
   end if File.exists?(env_file)
 
+  7. A BTC testnet wallet will be required for testing, you can create one at https://bitpay.com. Once created, you will need to send yourself some testnet coins to send payments unless you are planning to go live with btC right away. You can get test coins from this faucet here, https://testnet.manu.backend.hamburg/faucet.
+
 --------------
 
 ## 3. Requirements
