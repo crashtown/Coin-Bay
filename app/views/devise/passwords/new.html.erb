@@ -4,7 +4,7 @@
 <h3>Password Reset</h3>
 <br/>
 </div>
-
+<div class= "text-center">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -17,4 +17,5 @@
     <%= f.submit "Email Password Reset", class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
 <%= render "devise/shared/links" %>
