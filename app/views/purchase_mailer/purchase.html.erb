@@ -1,11 +1,11 @@
-<p>Hello <%="#{$success_details['email']}"</p>
+<p>Hello <%="#{@success_details['email']}"%></p>
 
 <p>Please find below your purchase summary from CoinBay.</p>
 
 <br/>
-<p><strong>Product Bought:</strong><%=" #{$success_details['item']}"%></p>
-<p><strong>Price:</strong><%=" $ #{$success_details['amount']}USD (#{$success_details["btcamount"]}BTC)"%></p>
-<p><strong>Seller:</strong><%=" #{$success_details['company']}"%></p>
+<p><strong>Product Bought:</strong><%=" #{@success_details['item']}"%></p>
+<p><strong>Price:</strong><%=" $ #{@success_details['amount']}USD (#{@success_details["btcamount"]}BTC)"%></p>
+<p><strong>Seller:</strong><%=" #{@success_details['company']}"%></p>
 
 <p>The Seller will be in contact regarding delivery times.</p>
 

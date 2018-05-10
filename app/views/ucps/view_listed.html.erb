@@ -17,25 +17,20 @@
   </thead>
 
   <tbody>
-    <% @items.each do |item| %>
-      <% if current_user == item.user %>
-        <tr>
-          <td><%= item.name %></td>
-          <td><%= item.description %></td>
-          <td><%= item.category.name %></td>
-          <td><%= item.price %></td>
-          <td><%= item.shipping.name %></td>
-          <td><%= item.quantity %></td>
-          <td><%= item.user.email%></td>
-          <td><%= link_to 'Edit', edit_item_path(item) %></td>
-          <td><%= link_to 'Delist', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% else %>
+    <tr>
+    <% if !@items.empty? then @items.each do |item| %>
+        <td><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td><%= item.category.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.shipping.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.user.email%></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Delist', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end else %>
         <td><%= "You have no items listed." %></td>
-        <% break %>
-        <% end %>
-
-
     <% end %>
+    </tr>
   </tbody>
 </table>

@@ -3,6 +3,7 @@ class UcpsController < ApplicationController
   before_action :set_ucp, only: [:show, :edit, :update, :destroy, :create]
 
 $btc = Btcprice.find(1).price
+
   # GET /ucps
   # GET /ucps.json
   def dashboard
@@ -27,11 +28,11 @@ end
   def buy_success
     @success_url = request.original_url
     @success_details = Rack::Utils.parse_query(URI(@success_url).query)
-    PurchaseMailer.purchase.deliver_now
+    PurchaseMailer.purchase(@success_details).deliver_now
   end
 
   def view_listed
-    @items = Item.all
+    @items = Item.where(user_id: current_user.id)
   end
 
     private
