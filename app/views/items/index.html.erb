@@ -28,7 +28,7 @@
           <% end %>
         <div style="display:inline-block; vertical-align: middle;">
           <p><%= link_to item.name, item %></p>
-          <p><%="Price: $#{item.price}USD (BTC:#{sprintf("%.8f", 1 / $btc.to_f * item.price)})" %></p>
+          <p><%="Price: $#{item.price}USD (BTC:#{sprintf("%.8f", 1 / @btc.to_f * item.price)})" %></p>
           <p><%= "Shipping: #{item.shipping.name}" %></p>
           <p><%= "Quantity Left: #{item.quantity}" %></p>
           <p><a href="mailto:<%= item.user.email %>"><%= "Seller: #{item.user.email}" %></a></p>

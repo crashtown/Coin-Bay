@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  $btc = Btcprice.find(1).price
+  before_action :set_btc
+
+  def set_btc
+    @btc = Btcprice.last.price
+  end
+  
 end

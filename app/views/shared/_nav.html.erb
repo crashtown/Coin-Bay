@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
   <img src="http://res.cloudinary.com/dwsqw6mhk/image/upload/c_scale,h_96/v1525953090/coinbay_logo_cropped.png" alt="logo">
   <div class= "pull-right">
-    <strong><%= "BTCUSD: $#{$btc[0..-7]}" %></strong>
+    <strong><%= "BTCUSD: $#{btc[0..-7]}" %></strong>
     <strong><%= current_user.email %></strong>
     <%= link_to "Marketplace", items_path, class: "btn btn-primary" %>
     <%= link_to "Control Panel", ucps_dashboard_path, class: "btn btn-primary" %>

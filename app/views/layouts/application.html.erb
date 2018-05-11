@@ -8,7 +8,7 @@
   </head>
   <body>
     <% if user_signed_in? %>
-      <%= render "shared/nav" %>
+      <%= render "shared/nav", btc: @btc  %>
     <%else%>
     <%end%>
     <%= yield %>
