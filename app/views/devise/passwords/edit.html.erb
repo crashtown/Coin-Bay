@@ -1,5 +1,10 @@
-<h2>Change your password</h2>
-
+<div class= "text-center">
+<img src="http://res.cloudinary.com/dwsqw6mhk/image/upload/v1525951688/coinbay_logo.png" alt="logo">
+<br/>
+<h3>Change Password</h3>
+<br/>
+</div>
+<div class= "text-center">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
@@ -18,8 +23,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Change my password" %>
+    <%= f.submit "Change my password", class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
