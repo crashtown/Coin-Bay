@@ -12,6 +12,7 @@
 9. Project Plan
 10. Future Updates
 11. Code Review
+12. Screenshots
 
 ------------------
 
@@ -150,6 +151,7 @@ User Control Panel View Listed
 1. Messaging within the app.
 2. Quantity/Stock level control.
 
+-------------------
 ## 11. Code Review
 
 1. Given a review.
@@ -157,3 +159,15 @@ User Control Panel View Listed
 
 2. Recieved a review.
 ![This is the project Plan](app/assets/images/codereviewreceived.jpg)
+
+-------------------
+## 12. Screenshots
+
+1. Logon.
+![This is the Logon page](app/assets/images/ss1.png)
+
+2. Marketplace.
+![This is the Marketplace page](app/assets/images/ss2.png)
+
+3. User Dashboard.
+![This is the User Dashboard page](app/assets/images/ss3.png)
